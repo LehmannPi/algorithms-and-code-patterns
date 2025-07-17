@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Todo List</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Accessible Todo List</h1>
+    </header>
+
+    <main role="main">
+        <section aria-labelledby="todo-form-title">
+            <h2 id="todo-form-title">Add New Task</h2>
+            
+            <form id="todo-form" novalidate>
+                <div class="form-group">
+                    <label for="task-input">Task Description:</label>
+                    <input 
+                        type="text" 
+                        id="task-input" 
+                        name="task" 
+                        aria-required="true"
+                        aria-describedby="error-message task-help"
+                        placeholder="Enter a new task"
+                        maxlength="41"
+                    >
+                    <div id="task-help" class="help-text">
+                        Enter a task description (maximum 100 characters)
+                    </div>
+                    <div id="error-message" class="error-message" aria-live="polite" role="alert"></div>
+                </div>
+                
+                <button 
+                    type="submit" 
+                    id="add-task-btn"
+                    aria-label="Add new task to the list"
+                >
+                    Add Task
+                </button>
+            </form>
+        </section>
+
+        <section aria-labelledby="todo-list-title">
+            <h2 id="todo-list-title">My Tasks</h2>
+            
+            <div id="todo-list" class="todo-list" aria-live="polite">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+            
+            <div id="empty-state" class="empty-state" aria-live="polite">
+                <p>No tasks yet. Add your first task above!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Accessible Todo List</p>
+    </footer>
+
+    <ul id="mb1" tabindex="0">
+      <li id="mb1_menu1" tabindex="1">
+        Font
+        <ul id="fontMenu" title="Font" tabindex="2">
+          <li id="sans-serif" tabindex="3">Sans-serif</li>
+          <li id="serif" tabindex="4">Serif</li>
+          <li id="monospace" tabindex="5">Monospace</li>
+          <li id="fantasy" tabindex="6">Fantasy</li>
+        </ul>
+      </li>
+      <li id="mb1_menu2" tabindex="7">
+        Style
+        <ul id="styleMenu" title="Style" tabindex="8">
+          <li id="italic" tabindex="9">Italics</li>
+          <li id="bold" tabindex="10">Bold</li>
+          <li id="underline" tabindex="11">Underlined</li>
+        </ul>
+      </li>
+      <li id="mb1_menu3" tabindex="12">
+        Justification
+        <ul id="justificationMenu" title="Justification" tabindex="13">
+          <li id="left" tabindex="14">Left</li>
+          <li id="center" tabindex="15">Centered</li>
+          <li id="right" tabindex="16">Right</li>
+          <li id="justify" tabindex="17">Justify</li>
+        </ul>
+      </li>
+    </ul>
+
+    <script src="index.js"></script>
+</body>
+</html> 
